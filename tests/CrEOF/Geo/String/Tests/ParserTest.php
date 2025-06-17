@@ -24,14 +24,14 @@
 namespace CrEOF\Geo\String\Tests;
 
 use CrEOF\Geo\String\Parser;
-
+use PHPUnit\Framework\TestCase;
 /**
  * Parser tests
  *
  * @author  Derek J. Lambert <dlambert@dereklambert.com>
  * @license http://dlambert.mit-license.org MIT
  */
-class ParserTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends TestCase
 {
     /**
      * @param string $input
