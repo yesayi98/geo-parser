@@ -222,7 +222,7 @@ class Parser
         $glimpse = $this->lexer->glimpse();
 
         // If a colon hasn't been matched, and next token is a number followed by degree symbol, when tuple separator is space instead of comma, this value is complete
-        if (Lexer::T_COLON !== $this->nextSymbol && $this->lexer->isNextTokenAny(array(Lexer::T_INTEGER, Lexer::T_FLOAT)) && Lexer::T_DEGREE === $glimpse['type']) {
+        if (Lexer::T_COLON !== $this->nextSymbol && $this->lexer->isNextTokenAny(array(Lexer::T_INTEGER, Lexer::T_FLOAT)) && Lexer::T_DEGREE === $glimpse?->type) {
             return $degrees;
         }
 
@@ -407,7 +407,7 @@ class Parser
     {
         // If cardinal direction was not on previous coordinate it can be anything
         if (null === $this->nextCardinal) {
-            $this->nextCardinal = Lexer::T_CARDINAL_LON === $this->lexer->lookahead['type'] ? Lexer::T_CARDINAL_LON : Lexer::T_CARDINAL_LAT;
+            $this->nextCardinal = Lexer::T_CARDINAL_LON === $this->lexer->lookahead->type ? Lexer::T_CARDINAL_LON : Lexer::T_CARDINAL_LAT;
         }
 
         // Match cardinal direction
@@ -486,7 +486,7 @@ class Parser
 
         $message = sprintf(
             '[Syntax Error] line 0, col %d: Error: %s %s in value "%s"',
-            isset($token['position']) ? $token['position'] : '-1',
+            $token->position ?? '-1',
             $expected,
             $found,
             $this->input
