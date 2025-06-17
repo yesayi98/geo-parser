@@ -468,7 +468,7 @@ class Parser
         $this->lexer->moveNext();
 
         // Return the token value
-        return $this->lexer->token['value'];
+        return $this->lexer->token->value;
     }
 
     /**
