@@ -62,7 +62,7 @@ class Lexer extends AbstractLexer
      *
      * @return int
      */
-    protected function getType(&$value)
+    protected function getType(string $value)
     {
         if (is_numeric($value)) {
             $value += 0;
